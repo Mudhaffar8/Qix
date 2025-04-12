@@ -8,13 +8,9 @@ Group: 29
 Team Members
 --------------------
 
-1. Sayeed Jalil
+1. Sayeed Jalil - 501237649
 
-   501237649
-
-3. Mudhaffar Ngwali
-
-   501244526
+3. Mudhaffar Ngwali - 501244526
 
 --------------------
 Package Contents
