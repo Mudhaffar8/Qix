@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcvode67jg0kn"]
+[gd_scene load_steps=4 format=3 uid="uid://dcvode67jg0kn"]
 
 [ext_resource type="Texture2D" uid="uid://d11nl1m134hbb" path="res://icon.svg" id="1_3fk4y"]
 [ext_resource type="Script" uid="uid://cgw3p3p4kqgyq" path="res://player.gd" id="1_opolw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(56, 56)
 
 [node name="Player" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -9,7 +12,14 @@ script = ExtResource("1_opolw")
 speed = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 3.8147e-06)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3fk4y")
 
 [node name="Trail" type="Line2D" parent="."]
 top_level = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_onrkg")

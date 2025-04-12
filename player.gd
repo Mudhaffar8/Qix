@@ -7,18 +7,36 @@ var is_drawing := false
 var trail_points : Array[Vector2] = []
 
 @onready var trail : Line2D = $Trail
+@onready var hitbox : Area2D = $Hitbox
 
-func _physics_process(delta):
+enum Areas {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}
+
+var game_boundaries = {
+	Areas.LEFT: 15 * GameManager.GRID_SIZE,
+	Areas.DOWN: 35 * GameManager.GRID_SIZE,
+	Areas.UP: 8 *  GameManager.GRID_SIZE,
+	Areas.RIGHT: 63 *  GameManager.GRID_SIZE
+}
+
+func _ready() -> void:
+	global_position = Vector2(game_boundaries[Areas.LEFT], game_boundaries[Areas.UP])
+	
+func _physics_process(delta: float) -> void:
 	var input := Vector2.ZERO
 	
 	# Detect Player Input
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("up") and global_position.y >= game_boundaries[Areas.UP]:
 		input.y -= 1
-	elif Input.is_action_pressed("down"):
+	elif Input.is_action_pressed("down") and global_position.y <= game_boundaries[Areas.DOWN]:
 		input.y += 1
-	elif Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("left") and global_position.x >= game_boundaries[Areas.LEFT]:
 		input.x -= 1
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("right") and global_position.x <= game_boundaries[Areas.RIGHT]:
 		input.x += 1
 
 	if input != Vector2.ZERO:
