@@ -1,7 +1,5 @@
-# Qix
+# Sprint 3 Delivery Package
 =========================
-
-Sprint 3 Delivery Package
 
 Group: 29
 
