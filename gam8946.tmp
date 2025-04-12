@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckq1nfi16doya"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ghr0n"]
+[ext_resource type="PackedScene" uid="uid://dcvode67jg0kn" path="res://player.tscn" id="2_wm800"]
+
+[sub_resource type="Curve2D" id="Curve2D_bxnv0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 226, 77, 0, 0, 0, 0, 920, 72, 0, 0, 0, 0, 920, 576, 0, 0, 0, 0, 226, 576, 0, 0, 0, 0, 226, 77)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bxnv0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(226, 77)
+rotation = -0.00720449
+script = ExtResource("1_ghr0n")
+
+[node name="Player" parent="Path2D/PathFollow2D" instance=ExtResource("2_wm800")]
