@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdf7ictv07oso"]
+
+[ext_resource type="Script" uid="uid://3fiymrc6x4bd" path="res://scripts/sparx.gd" id="1_fvdpm"]
+[ext_resource type="Texture2D" uid="uid://d11nl1m134hbb" path="res://icon.svg" id="2_ffvct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lipk3"]
+size = Vector2(61, 62)
+
+[node name="Qix" type="Node2D"]
+script = ExtResource("1_fvdpm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ffvct")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_lipk3")

@@ -1,6 +1,10 @@
 class_name Player
 extends Node2D
 
+'''
+Class for the player sprite
+'''
+
 @export var speed := 10
 
 var is_drawing := false
