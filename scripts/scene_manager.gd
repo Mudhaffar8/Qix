@@ -10,7 +10,7 @@ Example use case
 scene_switcher.switch_scene("res://scenes/name_of_scene.tscn")
 '''
 
-@onready var anim_player = $AnimationPlayer
+@onready var anim_player : AnimationPlayer = $AnimationPlayer
 
 var current_scene = null
 
