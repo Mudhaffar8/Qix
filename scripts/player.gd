@@ -69,3 +69,6 @@ func complete_area():
 	print("Shape completed. Trail:", trail_points)
 	trail_points.clear()
 	trail.clear_points()
+
+func game_over():
+	SceneManager.switch_scene("res://scenes/game_over.tscn")

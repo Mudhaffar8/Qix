@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdf7ictv07oso"]
 
-[ext_resource type="Script" uid="uid://3fiymrc6x4bd" path="res://scripts/sparx.gd" id="1_fvdpm"]
+[ext_resource type="Script" uid="uid://dtqbidvu8cpc0" path="res://scripts/qix.gd" id="1_fvdpm"]
 [ext_resource type="Texture2D" uid="uid://d11nl1m134hbb" path="res://icon.svg" id="2_ffvct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lipk3"]
@@ -20,3 +20,5 @@ texture = ExtResource("2_ffvct")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_lipk3")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
