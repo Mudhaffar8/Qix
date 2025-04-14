@@ -9,9 +9,12 @@ Class for the player sprite
 
 var is_drawing := false
 var trail_points : Array[Vector2] = []
+var health := 2
 
 @onready var trail : Line2D = $Trail
 @onready var hitbox : Area2D = $Hitbox
+
+signal life_depleted(health : int)
 
 enum Areas {
 	UP,
@@ -58,17 +61,24 @@ func _physics_process(delta: float) -> void:
 			trail.clear_points()
 			trail.add_point(global_position)
 		else:
-			complete_area()
+			capture_area()
 
 func update_trail(pos: Vector2):
 	if trail_points.size() == 0 or trail_points[-1].distance_to(pos) > 1:
 		trail_points.append(pos)
 		trail.add_point(pos)
 
-func complete_area():
-	print("Shape completed. Trail:", trail_points)
+func capture_area():
+	print("Area completed. Trail:", trail_points)
 	trail_points.clear()
 	trail.clear_points()
 
 func game_over():
 	SceneManager.switch_scene("res://scenes/game_over.tscn")
+	
+func lose_life():
+	health -= 1
+	life_depleted.emit(health)
+	
+	if health <= 0:
+		game_over()

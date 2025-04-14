@@ -127,8 +127,10 @@ position = Vector2(1015, 241)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Score" type="Label" parent="UI"]
+[node name="Health" type="Label" parent="UI"]
 offset_right = 103.0
 offset_bottom = 49.0
-text = "Score: 0
+text = "Health: 2
 "
+
+[connection signal="life_depleted" from="Player" to="GameManager" method="_on_player_life_depleted"]

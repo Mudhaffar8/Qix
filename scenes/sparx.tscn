@@ -22,4 +22,3 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lipk3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
